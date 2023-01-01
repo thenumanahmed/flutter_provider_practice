@@ -16,17 +16,19 @@ class _HomePageState extends State<HomePage> {
     final countProvider = Provider.of<CountProvider>(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text(countProvider.count.toString()),
+        title: const Text("Counter Example"),
       ),
       body: Center(
         child: Text(
-          '0',
-          style: TextStyle(fontSize: 30),
+          countProvider.count.toString(),
+          style: const TextStyle(fontSize: 30),
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: Icon(Icons.add),
+        onPressed: () {
+          countProvider.incrementCount();
+        },
+        child: const Icon(Icons.add),
       ),
     );
   }
