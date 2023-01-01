@@ -12,17 +12,23 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
+    print('rebuild');
+
     // to access the provider
-    final countProvider = Provider.of<CountProvider>(context);
+    // listen: true => rebuild whole widget on change
+    final countProvider = Provider.of<CountProvider>(context, listen: false);
     return Scaffold(
       appBar: AppBar(
         title: const Text("Counter Example"),
       ),
       body: Center(
-        child: Text(
-          countProvider.count.toString(),
-          style: const TextStyle(fontSize: 30),
-        ),
+        // < > contains the context
+        child: Consumer<CountProvider>(builder: (context, value, child) {
+          return Text(
+            value.count.toString(),
+            style: const TextStyle(fontSize: 30),
+          );
+        }),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
