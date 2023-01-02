@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:provider_practice/Provider/count_provider.dart';
-import 'package:provider_practice/provider/sliderprovider.dart';
-import 'package:provider_practice/screens/counter_example.dart';
 import 'package:provider_practice/screens/slider_example.dart';
+
+import 'Provider/count_provider.dart';
+import 'provider/sliderProvider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
         //now it has the global context
         providers: [
           ChangeNotifierProvider(create: (_) => SliderExampleProvider()),
-          // ChangeNotifierProvider(create: (_) => CountProvider())
+          ChangeNotifierProvider(create: (_) => CountProvider())
         ],
         // create: (_) => CountProvider(),
         child: MaterialApp(
@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
             colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
             useMaterial3: true,
           ),
-          home:const CounterExample(),
+          home: const SliderExample(),
         ));
   }
 }
