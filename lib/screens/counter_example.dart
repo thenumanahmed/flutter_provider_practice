@@ -2,17 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:provider_practice/Provider/count_provider.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class CounterExample extends StatefulWidget {
+  const CounterExample({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<CounterExample> createState() => _CounterExampleState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _CounterExampleState extends State<CounterExample> {
   @override
   Widget build(BuildContext context) {
     print('rebuild');
+    // return Container();
 
     // to access the provider
     // listen: true => rebuild whole widget on change
